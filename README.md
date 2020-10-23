@@ -112,3 +112,5 @@ PASSWORD :
 - ER図
 https://gyazo.com/8f1a9f24628d60728cc11efbf01573fb
 
+- 画面遷移図
+https://gyazo.com/de921a28513580d364dd2ca928684285
