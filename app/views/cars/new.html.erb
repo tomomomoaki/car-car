@@ -2,6 +2,8 @@
  
    <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
 
+   <%= f.file_field :image, id:"item-image" %>
+
    <%= f.text_area :text, class:"input-default", id:"text", placeholder:"text" %>
 
    <%= f.collection_select(:maker, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
