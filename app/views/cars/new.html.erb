@@ -1,0 +1,13 @@
+<%= form_with model: @car, url: "_path" do |f|%>
+ 
+   <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
+
+   <%= f.text_area :text, class:"input-default", id:"text", placeholder:"text" %>
+
+   <%= f.collection_select(:maker, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
+   <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"車名", maxlength:"15" %>
+
+   <%= f.collection_select(:body_type, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
+<% end %>
