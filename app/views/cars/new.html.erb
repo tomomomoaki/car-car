@@ -13,6 +13,8 @@
 
    <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
 
+   <%= f.text_field :name, class:"input-tag" %>
+
    <%= f.submit '投稿する'%>
 
 <% end %>
