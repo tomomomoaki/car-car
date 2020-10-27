@@ -1,4 +1,5 @@
-<%= form_with model: @car, url: "_path" do |f|%>
+<%= form_with model: @car, url: cars_path, local: true do |f|%>
+  <%#= render 'error_messages', model: @car_tag %>
  
    <%= f.text_area :title, class:"input-default", id:"title", placeholder:"title", maxlength:"40" %>
 
@@ -6,10 +7,12 @@
 
    <%= f.text_area :text, class:"input-default", id:"text", placeholder:"text" %>
 
-   <%= f.collection_select(:maker, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+   <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
 
-   <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"車名", maxlength:"15" %>
+   <%= f.text_area :car_name, class:"input-default", id:"car_name", placeholder:"車名", maxlength:"15" %>
 
-   <%= f.collection_select(:body_type, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+   <%= f.collection_select(:body_type_id, BodyType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+
+   <%= f.submit '投稿する'%>
 
 <% end %>

@@ -60,6 +60,9 @@ car-carでは、自動車に乗っていない人が、実際に自動車に乗�
 | ------------------ | ---------- | ----------------------------- |
 | title              | string     | null: false                   |
 | text               | text       | null: false                   |
+| maker              | string     | null: false                   |
+| car_name           | string     | null: false                   |
+| body_type          | string     | null: false                   |
 | user               | references | null: false, foreign_key: true|
 
 ### Association
@@ -73,9 +76,7 @@ car-carでは、自動車に乗っていない人が、実際に自動車に乗�
 
 | Column          | Type       | Options         |
 | --------------- | ---------- | --------------- |
-| maker           | string     |                 |
-| car_name        | string     |                 |
-| body_type       | string     |                 |
+| name            | string     | null: false     |
 
 ### Association
 
@@ -87,7 +88,7 @@ car-carでは、自動車に乗っていない人が、実際に自動車に乗�
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | car             | references | null: false, foreign_key :true |
-| tag             | references | foreign_key :true              |
+| tag             | references | null: false, foreign_key :true |
 
 
 ### Association
@@ -111,7 +112,7 @@ car-carでは、自動車に乗っていない人が、実際に自動車に乗�
 - belongs_to :car
 
 # ER図
-https://gyazo.com/8f1a9f24628d60728cc11efbf01573fb
+https://gyazo.com/dd48494f834f122bd94bf04aac9cf037
 
 # 画面遷移図
 https://gyazo.com/de921a28513580d364dd2ca928684285

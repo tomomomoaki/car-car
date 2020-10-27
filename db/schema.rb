@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_034132) do
+ActiveRecord::Schema.define(version: 2020_10_26_145905) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 2020_10_26_034132) do
 
   create_table "car_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "car_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["car_id"], name: "index_car_tags_on_car_id"
-    t.index ["user_id"], name: "index_car_tags_on_user_id"
+    t.index ["tag_id"], name: "index_car_tags_on_tag_id"
   end
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,15 +48,16 @@ ActiveRecord::Schema.define(version: 2020_10_26_034132) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "maker_id"
+    t.integer "car_name"
+    t.integer "body_type_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "maker"
-    t.string "car_name"
-    t.string "body_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +77,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_034132) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "car_tags", "cars"
-  add_foreign_key "car_tags", "users"
+  add_foreign_key "car_tags", "users", column: "tag_id"
   add_foreign_key "cars", "users"
 end
